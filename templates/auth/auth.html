@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login to Sportify</title>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='auth.css') }}"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body>
+		<main class="flex h-screen">
+			<section class="w-1/2">
+				<img
+					src="{{url_for('static',filename='images/sport.jpg')}}"
+					class="w-full h-screen"
+				/>
+			</section>
+			<section class="w-1/2 mt-20 mx-10">
+				<div
+					class="text-[var(--main-color)] font-bold flex gap-5 items-center text-xl"
+				>
+					<i data-lucide="circle-user-round" class="size-14"></i> Sportify :
+				</div>
+				{% include "layout/auth-nav.html" %}
+				<p
+					class="text-red-600 bg-red-100 w-1/2 py-2 px-10 mx-auto rounded-md my-2 hidden"
+					id="error"
+				></p>
+				{% block content %} {% endblock %}
+			</section>
+		</main>
+		<script src="{{ url_for('static', filename='auth.js') }}"></script>
+		<script src="https://unpkg.com/lucide@latest"></script>
+
+		<script>
+			lucide.createIcons(); // This renders all <i data-lucide="">
+		</script>
+	</body>
+</html>

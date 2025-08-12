@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+<div class="relative h-screen">
+	<img
+		class="w-full h-screen mx-auto absolute top-0 left-0"
+		src="{{ url_for('static', filename='images/landing.jpg') }}"
+		alt="Landing Image"
+	/>
+	<div
+		class="absolute left-1/2 -translate-y-1/2 -translate-x-1/2 top-2/3 text-white text-center w-full space-y-3"
+	>
+		<h3 class="font-semibold text-3xl">Find Your Perfect Sports</h3>
+		<p>
+			Book courts and fields for your favorite sports with ease. Join our
+			community of sports enthusiasts today!
+		</p>
+		<div class="mt-5">
+			<form
+				id="search"
+				action="/sport"
+				method="get"
+				class="flex justify-center gap-3"
+			>
+				<input
+					class="h-10 w-96"
+					placeholder="search"
+					type="text"
+					name="search"
+					required
+				/>
+				<button class="btn w-32" type="submit">Search</button>
+			</form>
+			<a id="signin" href="/login" class="btn w-32 mx-auto block py-2"
+				>Signin</a
+			>
+		</div>
+	</div>
+</div>
+<div class="container">{% include 'components/popular.html' %}</div>
+{% endblock %}
