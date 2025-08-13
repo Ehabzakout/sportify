@@ -3,25 +3,28 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Sportify</title>
+		<title>Sports</title>
 		<link
 			rel="stylesheet"
 			href="{{url_for('static',filename='css/global.css')}}"
 		/>
-
 		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 	<body>
-		<header>{% include "layout/navbar.html" %}</header>
-		<main class="min-h-[60vh]">{% block content %} {% endblock %}</main>
-		<footer class="text-center mt-10 mb-5 pt-6 border-t border-t-zince-200">
-			{% include "layout/footer.html" %}
-		</footer>
-		<!-- JS files -->
+		{% include "layout/navbar.html"%}
+
+		<p
+			class="text-red-600 bg-red-100 w-1/2 py-2 px-10 mx-auto rounded-md my-2 hidden"
+			id="errorMessage"
+		></p>
+		<div id="popular" class="container mt-5 mb-16">
+			<h3 class="text-sky-600 font-semibold mb-5">Sports we have</h3>
+		</div>
+		{% include "layout/footer.html"%}
 		<script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
 		<script
 			type="module"
-			src="{{ url_for('static', filename='js/index.js') }}"
+			src="{{ url_for('static', filename='js/sports.js') }}"
 		></script>
 		<script src="https://unpkg.com/lucide@latest"></script>
 

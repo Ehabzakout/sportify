@@ -1,9 +1,9 @@
 
-from flask import render_template,Flask,request,jsonify
+from flask import render_template,Flask
 from api.auth.register import register
 from api.auth.login import login
+from api.sports import get_sports
 
-import json
 
 app = Flask("sportify")
 app.jinja_env.auto_reload = True
@@ -16,7 +16,11 @@ def html_page(page):
 @app.route("/")
 def home_page():
     return  html_page("index")
-    
+
+@app.route("/sports")
+def sport_page ():
+    return html_page("sports")
+
 @app.route("/about")
 def about_page():
    return html_page("about")
@@ -38,6 +42,9 @@ def add_user():
 def login_user():
     return login()
    
+@app.route("/api/sports", methods=["GET"])
+def sports (): 
+    return get_sports()
 
 if __name__ == "__main__":   
   app.run(debug=True)
