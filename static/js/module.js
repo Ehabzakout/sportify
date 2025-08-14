@@ -10,7 +10,7 @@ export function createImgDiv(path) {
 
 export function createRatingElement(rate) {
 	const div = document.createElement("div");
-	div.className = "flex gap-2";
+	div.className = "flex gap-2 mt-auto";
 
 	for (let i = 0; i < 5; i++) {
 		if (i < rate) {
@@ -40,13 +40,18 @@ export async function getAllSports() {
 	return payload;
 }
 
-export async function getAllPlayGround() {
-	const response = await fetch("http://127.0.0.1:5000/api/playgrounds", {
-		method: "GET",
-	});
+export async function getAllPlayGround(category) {
+	const response = await fetch(
+		`http://127.0.0.1:5000/api/playgrounds?search=${category}`,
+		{
+			method: "GET",
+		}
+	);
 	if (!response.ok)
 		throw new Error(response.statusText || "Can't Get playgrounds");
 	const payload = await response.json();
-	if (!payload.data.length) throw new Error("There are no playgrounds to show");
+
+	if (!payload.data.length)
+		throw new Error(payload.message || "There are no playgrounds to show");
 	return payload;
 }
