@@ -8,16 +8,6 @@ export function createImgDiv(path) {
 	return imgDiv;
 }
 
-export async function getAllSports() {
-	const response = await fetch("http://127.0.0.1:5000/api/sports", {
-		method: "GET",
-	});
-	if (!response.ok) throw new Error(response.statusText || "Can't Get sports");
-	const payload = await response.json();
-	if (!payload.data.length) throw new Error("There are no categories to show");
-	return payload;
-}
-
 export function createRatingElement(rate) {
 	const div = document.createElement("div");
 	div.className = "flex gap-2";
@@ -38,4 +28,25 @@ export function createRatingElement(rate) {
 	}
 
 	return div;
+}
+
+export async function getAllSports() {
+	const response = await fetch("http://127.0.0.1:5000/api/sports", {
+		method: "GET",
+	});
+	if (!response.ok) throw new Error(response.statusText || "Can't Get sports");
+	const payload = await response.json();
+	if (!payload.data.length) throw new Error("There are no categories to show");
+	return payload;
+}
+
+export async function getAllPlayGround() {
+	const response = await fetch("http://127.0.0.1:5000/api/playgrounds", {
+		method: "GET",
+	});
+	if (!response.ok)
+		throw new Error(response.statusText || "Can't Get playgrounds");
+	const payload = await response.json();
+	if (!payload.data.length) throw new Error("There are no playgrounds to show");
+	return payload;
 }

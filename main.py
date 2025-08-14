@@ -3,6 +3,7 @@ from flask import render_template,Flask
 from api.auth.register import register
 from api.auth.login import login
 from api.sports import get_sports
+from api.playground import get_all_playgrounds
 
 
 app = Flask("sportify")
@@ -20,6 +21,10 @@ def home_page():
 @app.route("/sports")
 def sport_page ():
     return html_page("sports")
+
+@app.route("/results")
+def result_page ():
+    return html_page("results")
 
 @app.route("/about")
 def about_page():
@@ -45,6 +50,11 @@ def login_user():
 @app.route("/api/sports", methods=["GET"])
 def sports (): 
     return get_sports()
+
+
+@app.route("/api/playgrounds", methods=["GET"])
+def playgrounds (): 
+    return get_all_playgrounds()
 
 if __name__ == "__main__":   
   app.run(debug=True)
