@@ -3,7 +3,7 @@ from flask import render_template,Flask
 from api.auth.register import register
 from api.auth.login import login
 from api.sports import get_sports
-from api.playground import get_all_playgrounds
+from api.playground import get_playgrounds
 
 
 app = Flask("sportify")
@@ -54,7 +54,7 @@ def sports ():
 
 @app.route("/api/playgrounds", methods=["GET"])
 def playgrounds (): 
-    return get_all_playgrounds()
+    return get_playgrounds()
 
 if __name__ == "__main__":   
   app.run(debug=True)

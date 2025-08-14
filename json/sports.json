@@ -3,7 +3,7 @@
 		"title": "Football",
 		"img": "static/images/football.jpg",
 		"id": 1,
-		"playgroundCount": 5,
+		"playgroundCount": 4,
 		"rating": 5
 	},
 	{
@@ -17,7 +17,7 @@
 		"title": "Volleyball",
 		"img": "static/images/volleyball.jpg",
 		"id": 3,
-		"playgroundCount": 2,
+		"playgroundCount": 3,
 		"rating": 3
 	},
 	{
@@ -31,7 +31,7 @@
 		"title": "Padel",
 		"img": "static/images/padel.jpg",
 		"id": 5,
-		"playgroundCount": 4,
+		"playgroundCount": 2,
 		"rating": 4
 	}
 ]
