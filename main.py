@@ -1,10 +1,11 @@
 
-from flask import render_template,Flask
+from flask import render_template,Flask,request
 from api.auth.register import register
 from api.auth.login import login
 from api.sports import get_sports
 from api.playground import get_playgrounds
-
+from modules.reserve import Reserve
+from api.booking import booking
 
 app = Flask("sportify")
 app.jinja_env.auto_reload = True
@@ -25,6 +26,13 @@ def sport_page ():
 @app.route("/results")
 def result_page ():
     return html_page("results")
+
+@app.route("/booking")
+def booking_page():
+   content= booking()
+   page = html_page("booking")
+   new_page= page.replace("$$booking$$",content)
+   return new_page
 
 @app.route("/about")
 def about_page():

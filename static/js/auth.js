@@ -46,8 +46,9 @@ async function loginSubmit(event) {
 		});
 		const payload = await response.json();
 		if (!payload.success) throw new Error(payload.message || "Can't Register");
-		console.log(payload);
+
 		localStorage.setItem("user", payload.data.username);
+		localStorage.setItem("userId", payload.data.id);
 		window.location.href = "/";
 	} catch (error) {
 		errorMessage.innerText = error.message;
