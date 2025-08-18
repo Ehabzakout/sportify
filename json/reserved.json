@@ -1,1 +1,1 @@
-[{ "name": "playground 1", "sport": "football", "time": 1234654, "id": 1 }]
+[{"playgroundId": 1, "time": "2025-08-18 19:00", "userId": 2}, {"playgroundId": 1, "time": "2025-08-18 15:00", "userId": 1}, {"playgroundId": 1, "time": "2025-08-18 21:00", "userId": 1}]

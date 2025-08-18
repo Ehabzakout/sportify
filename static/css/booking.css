@@ -1,0 +1,41 @@
+@import url("global.css");
+
+.details {
+	display: grid;
+	background-color: var(--second-color);
+	grid-template-columns: repeat(7, 1fr);
+	font-size: 14px;
+	padding: 9px 0px;
+	border-bottom: 1px solid #dededefb;
+
+	:nth-child(3) {
+		grid-column: 5;
+	}
+	:last-child {
+		grid-column: span 2;
+	}
+	&:last-child {
+		border-bottom: none;
+	}
+	h4 {
+		font-weight: 600;
+	}
+}
+
+.book,
+.cancel {
+	background-color: var(--main-color);
+	color: white;
+	padding: 2px 25px;
+	border-radius: 5px;
+	font-size: 14px;
+	width: 100px;
+	text-align: center;
+	&:hover {
+		opacity: 0.9;
+	}
+}
+
+.cancel {
+	background-color: rgb(232, 4, 4);
+}

@@ -2,8 +2,12 @@ import { createRatingElement, getAllPlayGround } from "./module.js";
 const errorMessage = document.getElementById("errorMessage");
 const results = document.getElementById("results");
 const search = new URLSearchParams(window.location.search).get("search");
-const h1 = document.getElementById("category");
-h1.innerText = search;
+const userId = localStorage.getItem("userId");
+
+if (!userId) {
+	errorMessage.innerText = "You aren't login";
+}
+
 function createDetails(item) {
 	const details = document.createElement("div");
 	details.className = "flex flex-col";
@@ -25,7 +29,7 @@ function createBook(item) {
 
 	const bookButton = document.createElement("a");
 	bookButton.innerText = "Book";
-	bookButton.href = `/booking?id=${item.id}`;
+	bookButton.href = `/booking?courtId=${item.id}&userId=${userId}`;
 	bookButton.className =
 		"mt-auto w-full bg-[var(--main-color)] block text-center text-white fond-semibold py-1 hover:opacity-90 rounded-md";
 	const p = document.createElement("p");
@@ -58,7 +62,6 @@ function createResultsElements(playgrounds) {
 
 getAllPlayGround(search)
 	.then((res) => {
-		console.log(res);
 		createResultsElements(res.data);
 	})
 	.catch((error) => {

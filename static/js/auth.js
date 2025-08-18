@@ -12,7 +12,13 @@ async function registerSubmit(event) {
 	const errorMessage = document.getElementById("error");
 	try {
 		const formData = new FormData(registerForm);
+
 		const data = Object.fromEntries(formData.entries());
+		if (data.password.length < 6)
+			throw new Error("Your password should be at least 6 char");
+		if (data.password !== data.confirm)
+			throw new Error("Your password doesn't match");
+		delete data.confirm;
 		const response = await fetch("http://127.0.0.1:5000/api/auth/register", {
 			method: "POST",
 			headers: {
@@ -46,8 +52,9 @@ async function loginSubmit(event) {
 		});
 		const payload = await response.json();
 		if (!payload.success) throw new Error(payload.message || "Can't Register");
-		console.log(payload);
+
 		localStorage.setItem("user", payload.data.username);
+		localStorage.setItem("userId", payload.data.id);
 		window.location.href = "/";
 	} catch (error) {
 		errorMessage.innerText = error.message;

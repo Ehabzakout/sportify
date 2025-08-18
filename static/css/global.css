@@ -1,6 +1,8 @@
 :root {
 	box-sizing: border-box;
 	--main-color: #2b9eed;
+	--second-color: hsl(163, 54%, 97%);
+	--third-color: hsl(180, 41%, 92%);
 }
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -12,7 +14,8 @@ body {
 	padding: 0px 70px;
 	margin: 0px auto;
 }
-nav ul a {
+nav ul a,
+a.link {
 	padding: 5px 10px;
 	border-radius: 5px;
 
@@ -28,7 +31,8 @@ nav ul a {
 	cursor: not-allowed;
 }
 
-input {
+input,
+input.search {
 	color: black !important;
 	background-color: #eee;
 	padding: 0px 20px !important;
@@ -36,8 +40,15 @@ input {
 	border-radius: 6px;
 	border: 1px solid #d4d2d2ee;
 	display: block;
+	width: 100%;
 	&:focus {
 		border: 2px solid var(--main-color);
+	}
+}
+input.search {
+	width: 40%;
+	height: 40px;
+	&:focus {
 		box-shadow: 0px 0px 15px 0px var(--main-color);
 	}
 }
