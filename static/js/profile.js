@@ -21,7 +21,7 @@ if (userId && pathname.includes("info")) {
 				}
 			);
 			const payload = await response.json();
-			console.log(payload);
+
 			return payload;
 		} catch (error) {
 			console.log(error);
@@ -80,23 +80,27 @@ async function updateForm(event) {
 if (userId && pathname.includes("update")) {
 }
 
-deleteUser.onclick = async () => {
-	const accept = window.confirm("Are you sure you want to delete your account");
-	if (accept) {
-		try {
-			const response = await fetch(
-				`http://127.0.0.1:5000/api/delete-user/${userId}`,
-				{
-					method: "DELETE",
-					headers: { "content-type": "application/json" },
-				}
-			);
-			const payload = await response.json();
-			localStorage.clear();
-			window.location.href = "/";
-			return payload;
-		} catch (error) {
-			console.log(error);
+if (userId && pathname.includes("delete")) {
+	deleteUser.onclick = async () => {
+		const accept = window.confirm(
+			"Are you sure you want to delete your account"
+		);
+		if (accept) {
+			try {
+				const response = await fetch(
+					`http://127.0.0.1:5000/api/delete-user/${userId}`,
+					{
+						method: "DELETE",
+						headers: { "content-type": "application/json" },
+					}
+				);
+				const payload = await response.json();
+				localStorage.clear();
+				window.location.href = "/";
+				return payload;
+			} catch (error) {
+				console.log(error);
+			}
 		}
-	}
-};
+	};
+}

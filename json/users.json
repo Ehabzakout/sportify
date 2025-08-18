@@ -1,16 +1,1 @@
-[
-	{
-		"email": "ehab@gmail.com",
-		"id": 2,
-		"password": "123456",
-		"phone": "01040166043",
-		"username": "ehab zakout"
-	},
-	{
-		"email": "ftw@gmail.com",
-		"id": 3,
-		"password": "123456",
-		"phone": "01040787388",
-		"username": "ehab zakout"
-	}
-]
+[{"email": "ehab@gmail.com", "id": 2, "password": "123456", "phone": "01040166043", "username": "ehab zakout"}, {"email": "ftwehab@gmail.com", "username": "ehab zakout", "phone": "01040787388", "password": "123456", "id": 3}]
