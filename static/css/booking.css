@@ -22,7 +22,8 @@
 	}
 }
 
-.book {
+.book,
+.cancel {
 	background-color: var(--main-color);
 	color: white;
 	padding: 2px 25px;
@@ -37,13 +38,4 @@
 
 .cancel {
 	background-color: rgb(232, 4, 4);
-	width: 100px;
-	text-align: center;
-	color: white;
-	padding: 2px 25px;
-	border-radius: 5px;
-	font-size: 14px;
-	&:hover {
-		opacity: 0.9;
-	}
 }

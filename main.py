@@ -4,6 +4,7 @@ from api.auth.register import register
 from api.auth.login import login
 from api.sports import get_sports
 from api.playground import get_playgrounds
+from api.user import get_user_info,update_user_password,delete_user_account
 
 from api.booking import booking,create_book,cancel_book
 
@@ -47,6 +48,19 @@ def register_page():
    return html_page("auth/register")
 
 
+@app.route ("/profile/info")
+def user_page():
+   return html_page("profile/user-info")
+
+@app.route ("/profile/update")
+def update_page():
+   return html_page("profile/update")
+
+@app.route ("/profile/delete")
+def delete_page():
+   return html_page("profile/delete")
+
+
 @app.route("/api/auth/register", methods=["POST"])
 def add_user():
     return register()
@@ -71,6 +85,18 @@ def booking_court ():
 @app.route("/api/booking", methods=["DELETE"])
 def cancel_booking (): 
     return cancel_book()
+
+@app.route("/api/user-info/<int:id>", methods=["GET"])
+def user_Info (id): 
+    return get_user_info(id)
+
+@app.route("/api/password/update", methods=["PATCH"])
+def update_password (): 
+    return update_user_password()
+
+@app.route("/api/delete-user/<int:id>", methods=["DELETE"])
+def delete_user (id): 
+    return delete_user_account(id)
 
 if __name__ == "__main__":   
   app.run(debug=True)
