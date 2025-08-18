@@ -1,11 +1,11 @@
 
-from flask import render_template,Flask,request
+from flask import render_template,Flask
 from api.auth.register import register
 from api.auth.login import login
 from api.sports import get_sports
 from api.playground import get_playgrounds
-from modules.reserve import Reserve
-from api.booking import booking
+
+from api.booking import booking,create_book,cancel_book
 
 app = Flask("sportify")
 app.jinja_env.auto_reload = True
@@ -63,6 +63,14 @@ def sports ():
 @app.route("/api/playgrounds", methods=["GET"])
 def playgrounds (): 
     return get_playgrounds()
+
+@app.route("/api/booking", methods=["POST"])
+def booking_court (): 
+    return create_book()
+
+@app.route("/api/booking", methods=["DELETE"])
+def cancel_booking (): 
+    return cancel_book()
 
 if __name__ == "__main__":   
   app.run(debug=True)
