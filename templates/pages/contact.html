@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sportify</title>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static',filename='css/global.css')}}"
+		/>
+
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body>
+		<header>{% include "layout/navbar.html" %}</header>
+		<div class="container my-10 w-3/4 mx-auto">
+			<div>
+				<h1 class="font-bold text-lg mb-5">Contact Sportify</h1>
+				<p>
+					We're here to help! If you have any questions, feedback, or need
+					assistance, please don't hesitate to reach out to us. You can contact
+					us through the form below, email, or phone
+				</p>
+			</div>
+			<form
+				class="w-1/2 space-y-4 mt-10"
+				id="contactForm"
+				onsubmit="submitContactForm(event)"
+				method="POST"
+			>
+				<p
+					class="text-red-600 bg-red-100 w-full py-2 px-10 mx-auto rounded-md my-2 hidden"
+					id="errorMessage"
+				></p>
+				<p
+					class="text-[#00b715ff] bg-[#dcffe0ff] w-full py-2 px-10 mx-auto rounded-md my-2 hidden"
+					id="successMessage"
+				></p>
+				<h1 class="font-bold">Contact Form</h1>
+				<input type="email" name="email" placeholder="Your email" required />
+				<input type="text" name="name" placeholder="Your name" required />
+				<textarea
+					class="w-full bg-zinc-100 py-3 px-5 h-56 outline-none focus:border-2 focus:border-[var(--main-color)] rounded-lg"
+					placeholder="Message"
+					name="message"
+				></textarea>
+				<button type="submit" class="btn w-36 my-3 text-white">Send</button>
+			</form>
+
+			<div class="space-y-2 mt-10">
+				<h1 class="font-bold text-lg mb-5">Other Ways to Reach Us</h1>
+				<p>Email: support@sportify.com</p>
+				<p>Phone: (555) 987-6543 (Optional)</p>
+				<p>Address: Cairo al nasser st</p>
+			</div>
+		</div>
+
+		<footer class="text-center mt-10 mb-5 pt-6 border-t border-t-zince-200">
+			{% include "layout/footer.html" %}
+		</footer>
+		<!-- JS files -->
+		<script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+		<script src="https://unpkg.com/lucide@latest"></script>
+
+		<script>
+			lucide.createIcons(); // This renders all <i data-lucide="">
+		</script>
+	</body>
+</html>

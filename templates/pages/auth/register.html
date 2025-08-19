@@ -1,0 +1,51 @@
+{% extends "pages/auth/auth.html" %} {% block content %}
+
+<form class="auth" id="register-form" onsubmit="registerSubmit(event)">
+	<label for="email" class="text-[var(--main-color)]">E-mail</label>
+	<input
+		type="email"
+		name="email"
+		id="signup-email"
+		placeholder="email"
+		required
+	/>
+	<label for="username" class="text-[var(--main-color)]">Username</label>
+	<input
+		type="text"
+		name="username"
+		id="username"
+		placeholder="username"
+		required
+	/>
+	<label for="phone" class="text-[var(--main-color)]">Phone</label>
+	<input
+		type="text"
+		name="phone"
+		id="phone"
+		placeholder="phone number"
+		required
+	/>
+	<label for="password" class="text-[var(--main-color)]">Password</label>
+	<input
+		type="password"
+		name="password"
+		id="signup-password"
+		placeholder="password"
+		required
+	/>
+	<label for="confirm" class="text-[var(--main-color)]">Confirm Password</label>
+	<input
+		type="password"
+		name="confirm"
+		id="confirm-password"
+		placeholder="confirm password"
+		required
+	/>
+	<p>
+		I have an account?<a href="/login" class="text-blue-500 underline">Login</a>
+	</p>
+	<button type="submit" class="btn my-3 w-full text-white">
+		Create Account
+	</button>
+</form>
+{% endblock %}

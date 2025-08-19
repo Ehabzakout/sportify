@@ -1,0 +1,26 @@
+{% extends "pages/auth/auth.html" %} {% block content %}
+<form class="auth" id="login-form" onsubmit="loginSubmit(event)">
+	<label for="signin-email" class="text-[var(--main-color)]">E-mail</label>
+	<input
+		type="email"
+		name="email"
+		id="signin-email"
+		placeholder="Enter your email"
+		required
+	/>
+	<label for="signin-password" class="text-[var(--main-color)]">Password</label>
+	<input
+		type="password"
+		name="password"
+		id="signin-password"
+		placeholder="Enter your password"
+		required
+	/>
+	<p>
+		Don't have account?<a href="/register" class="text-blue-500 underline"
+			>Create account</a
+		>
+	</p>
+	<button type="submit" class="btn my-5 w-full text-white">Login</button>
+</form>
+{% endblock %}

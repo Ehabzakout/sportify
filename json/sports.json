@@ -1,0 +1,37 @@
+[
+	{
+		"title": "Football",
+		"img": "static/images/football.jpg",
+		"id": 1,
+		"playgroundCount": 4,
+		"rating": 5
+	},
+	{
+		"title": "Basketball",
+		"img": "static/images/basketball.jpg",
+		"id": 2,
+		"playgroundCount": 4,
+		"rating": 4
+	},
+	{
+		"title": "Volleyball",
+		"img": "static/images/volleyball.jpg",
+		"id": 3,
+		"playgroundCount": 3,
+		"rating": 3
+	},
+	{
+		"title": "Tennis",
+		"img": "static/images/tennis.jpg",
+		"id": 4,
+		"playgroundCount": 3,
+		"rating": 4
+	},
+	{
+		"title": "Padel",
+		"img": "static/images/padel.jpg",
+		"id": 5,
+		"playgroundCount": 2,
+		"rating": 4
+	}
+]

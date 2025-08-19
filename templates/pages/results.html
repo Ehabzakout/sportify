@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Results</title>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static',filename='css/global.css')}}"
+		/>
+
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+
+	<body>
+		<header>{% include "layout/navbar.html" %}</header>
+		<main class="min-h-[60vh] container pt-10">
+			<p
+				class="text-red-600 bg-red-100 w-1/2 py-2 px-10 mx-auto rounded-md my-4 hidden"
+				id="errorMessage"
+			></p>
+
+			<div id="results" class="space-y-5"></div>
+		</main>
+		<footer class="text-center mt-10 mb-5 pt-6 border-t border-t-zince-200">
+			{% include "layout/footer.html" %}
+		</footer>
+		<script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+		<script
+			type="module"
+			src="{{ url_for('static', filename='js/results.js') }}"
+		></script>
+		<script src="https://unpkg.com/lucide@latest"></script>
+
+		<script>
+			lucide.createIcons(); // This renders all <i data-lucide="">
+		</script>
+	</body>
+</html>
