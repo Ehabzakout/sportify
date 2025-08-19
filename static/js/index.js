@@ -1,19 +1,21 @@
 import { createImgDiv, getAllSports } from "./module.js";
 
+// get elements from index page
 const div = document.getElementById("popular");
 const search = document.getElementById("search");
 const signin = document.getElementById("signin");
 const message = document.getElementById("message");
 const user = localStorage.getItem("user");
 
+// create sports app have and display it,parameter array of cat objects
 function displayCategories(cat) {
 	for (let i = 0; i < cat.length; i++) {
+		// sport link
 		const item = document.createElement("a");
 		item.className = "group";
-		if (!user) {
-			item.classList.add("disabled");
-		}
 		item.href = `/results?search=${cat[i].title.toLocaleLowerCase()}`;
+
+		// create sport img
 		const imgDiv = createImgDiv(cat[i].img);
 		item.appendChild(imgDiv);
 		const title = document.createElement("h4");
@@ -35,6 +37,7 @@ if (!user) {
 	message.style.display = "none";
 }
 
+// api request to get all sports the =n display results
 getAllSports()
 	.then((res) => {
 		displayCategories(res.data);

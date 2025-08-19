@@ -5,7 +5,6 @@ from api.auth.login import login
 from api.sports import get_sports
 from api.playground import get_playgrounds
 from api.user import get_user_info,update_user_password,delete_user_account
-
 from api.booking import booking,create_book,cancel_book
 
 app = Flask("sportify")
@@ -16,6 +15,7 @@ def html_page(page):
    return render_template("pages/"+page + ".html")
 
 
+# Routes 
 @app.route("/")
 def home_page():
     return  html_page("index")
@@ -61,6 +61,9 @@ def delete_page():
    return html_page("profile/delete")
 
 
+
+
+# APi requests
 @app.route("/api/auth/register", methods=["POST"])
 def add_user():
     return register()

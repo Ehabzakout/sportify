@@ -10,6 +10,7 @@ routes.forEach((el) => {
 	else el.classList.remove("active");
 });
 
+// Generate user info page depends on route
 if (userId && pathname.includes("info")) {
 	async function getUserData() {
 		try {
@@ -27,6 +28,8 @@ if (userId && pathname.includes("info")) {
 			console.log(error);
 		}
 	}
+
+	// display user info after response
 	getUserData().then((payload) => {
 		const user = payload.user;
 		for (let i in user) {
@@ -45,21 +48,28 @@ if (userId && pathname.includes("info")) {
 	});
 }
 
+// // Generate update password page depends on route
 async function updateForm(event) {
 	event.preventDefault();
 	try {
 		const userId = localStorage.getItem("userId");
 		if (!userId) throw new Error("Can't get id");
+
+		// Get form data
 		const updateForm = document.getElementById("update-form");
 		const form = new FormData(updateForm);
 		const data = Object.fromEntries(form.entries());
 		data.id = +userId;
+
+		// password validation
 		if (data.password.length < 6)
 			throw new Error("You password should be at least 6 chars");
 
 		if (data.confirm !== data.password)
 			throw new Error("Your password doesn't match");
 		delete data.confirm;
+
+		// request to change password
 		const response = await fetch("http://127.0.0.1:5000/api/password/update", {
 			method: "PATCH",
 			headers: {
@@ -80,6 +90,7 @@ async function updateForm(event) {
 if (userId && pathname.includes("update")) {
 }
 
+// Generate delete account  page depends on route
 if (userId && pathname.includes("delete")) {
 	deleteUser.onclick = async () => {
 		const accept = window.confirm(

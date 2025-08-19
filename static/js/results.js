@@ -5,9 +5,11 @@ const search = new URLSearchParams(window.location.search).get("search");
 const userId = localStorage.getItem("userId");
 
 if (!userId) {
-	errorMessage.innerText = "You aren't login";
+	errorMessage.innerText = "You Should signin to book court";
+	errorMessage.style.display = "block";
 }
 
+// Function to add details about court
 function createDetails(item) {
 	const details = document.createElement("div");
 	details.className = "flex flex-col";
@@ -21,26 +23,34 @@ function createDetails(item) {
 	return details;
 }
 
+// display court and availability for booking
 function createBook(item) {
 	const book = document.createElement("div");
 	book.className = "flex flex-col py-3";
 	book.innerHTML = `<p class= flex gap-2 h-5><img src=static/images/location.png class= w-5 h-3/>${item.address}</p>
 	`;
 
-	const bookButton = document.createElement("a");
-	bookButton.innerText = "Book";
-	bookButton.href = `/booking?courtId=${item.id}&userId=${userId}`;
-	bookButton.className =
-		"mt-auto w-full bg-[var(--main-color)] block text-center text-white fond-semibold py-1 hover:opacity-90 rounded-md";
-	const p = document.createElement("p");
-	p.innerText = "This playground is unavailable";
-	p.className = "mt-auto text-red-500 fond-semibold";
-	if (item.isReservable) {
-		book.append(bookButton);
-	} else book.append(p);
+	// if user logged in show book options
+	if (userId) {
+		// create book button
+		const bookButton = document.createElement("a");
+		bookButton.innerText = "Book";
+		bookButton.href = `/booking?courtId=${item.id}&userId=${userId}`;
+		bookButton.className =
+			"mt-auto w-full bg-[var(--main-color)] block text-center text-white fond-semibold py-1 hover:opacity-90 rounded-md";
+
+		const p = document.createElement("p");
+		p.innerText = "This playground is unavailable";
+		p.className = "mt-auto text-red-500 fond-semibold";
+
+		if (item.isReservable) {
+			book.append(bookButton);
+		} else book.append(p);
+	}
 	return book;
 }
 
+// function to generate courts depends on sport
 function createResultsElements(playgrounds) {
 	for (let item in playgrounds) {
 		const div = document.createElement("div");

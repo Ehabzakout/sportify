@@ -7,6 +7,7 @@ const storage = localStorage.getItem("user");
 const path =
 	window.location.pathname == "/" ? "home" : window.location.pathname;
 
+// add active class to active link
 links.forEach((link) => {
 	if (path.includes(link.innerHTML.toLowerCase())) {
 		link.classList.add("active");
@@ -25,5 +26,5 @@ if (storage) {
 }
 
 logout.addEventListener("click", () => {
-	localStorage.removeItem("user");
+	localStorage.clear();
 });

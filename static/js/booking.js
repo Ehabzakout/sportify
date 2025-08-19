@@ -1,5 +1,7 @@
 const bookButton = document.querySelectorAll("button.book");
 const cancel = document.querySelectorAll("button.cancel");
+
+// get data from search params
 const userId = Number(
 	new URLSearchParams(window.location.search).get("userId")
 );
@@ -7,6 +9,7 @@ const playgroundId = Number(
 	new URLSearchParams(window.location.search).get("courtId")
 );
 
+// book request
 async function book(time) {
 	try {
 		const response = await fetch("http://127.0.0.1:5000/api/booking", {
@@ -21,6 +24,7 @@ async function book(time) {
 	}
 }
 
+// cancel book request
 async function cancelBook(time) {
 	try {
 		const response = await fetch("http://127.0.0.1:5000/api/booking", {
@@ -29,12 +33,14 @@ async function cancelBook(time) {
 			body: JSON.stringify({ playgroundId, userId, time }),
 		});
 		const payload = await response.json();
-		console.log(payload);
+
 		return payload;
 	} catch (error) {
 		console.log(error);
 	}
 }
+
+// add event click on book button to book request
 bookButton.forEach((el) => {
 	el.addEventListener("click", () => {
 		const day = el.getAttribute("data-day");
@@ -45,6 +51,7 @@ bookButton.forEach((el) => {
 	});
 });
 
+// add event click on cancel button to cancel book request
 cancel.forEach((el) => {
 	el.addEventListener("click", () => {
 		const day = el.getAttribute("data-day");

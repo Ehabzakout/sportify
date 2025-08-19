@@ -1,3 +1,4 @@
+// function to create img html element dynamic
 export function createImgDiv(path) {
 	const imgDiv = document.createElement("div");
 	imgDiv.className = "rounded-lg overflow-hidden ";
@@ -8,6 +9,7 @@ export function createImgDiv(path) {
 	return imgDiv;
 }
 
+// function to create rating html element
 export function createRatingElement(rate) {
 	const div = document.createElement("div");
 	div.className = "flex gap-2 mt-auto";
@@ -30,6 +32,7 @@ export function createRatingElement(rate) {
 	return div;
 }
 
+// API request to get sports from backend
 export async function getAllSports() {
 	const response = await fetch("http://127.0.0.1:5000/api/sports", {
 		method: "GET",
@@ -40,6 +43,7 @@ export async function getAllSports() {
 	return payload;
 }
 
+// API request to get all courts from backend
 export async function getAllPlayGround(category) {
 	const response = await fetch(
 		`http://127.0.0.1:5000/api/playgrounds?search=${category}`,
