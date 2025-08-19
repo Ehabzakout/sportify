@@ -6,6 +6,7 @@ from api.sports import get_sports
 from api.playground import get_playgrounds
 from api.user import get_user_info,update_user_password,delete_user_account
 from api.booking import booking,create_book,cancel_book
+from api.contact import contact
 
 app = Flask("sportify")
 app.jinja_env.auto_reload = True
@@ -38,6 +39,14 @@ def booking_page():
 @app.route("/about")
 def about_page():
    return html_page("about")
+
+@app.route("/contact")
+def contact_page():
+   return html_page("contact")
+
+@app.route("/terms")
+def terms_page():
+   return html_page("terms")
 
 @app.route("/login")
 def login_page():
@@ -100,6 +109,10 @@ def update_password ():
 @app.route("/api/delete-user/<int:id>", methods=["DELETE"])
 def delete_user (id): 
     return delete_user_account(id)
+
+@app.route("/api/contact", methods=["POST"])
+def contact_api (): 
+    return contact()
 
 if __name__ == "__main__":   
   app.run(debug=True)

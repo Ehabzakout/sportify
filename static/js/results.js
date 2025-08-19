@@ -54,9 +54,10 @@ function createBook(item) {
 function createResultsElements(playgrounds) {
 	for (let item in playgrounds) {
 		const div = document.createElement("div");
-		div.className = "grid grid-cols-[auto,1fr,auto] gap-3 ";
+		div.className =
+			"grid grid-cols-[auto,1fr,auto] gap-3 p-3 border border-zinc-200 rounded-lg ";
 		const imgDiv = document.createElement("div");
-		imgDiv.className = "w-56 h-28";
+		imgDiv.className = "w-56 h-32";
 		const img = document.createElement("img");
 		img.src = playgrounds[item].img;
 		img.className = "w-full h-full rounded-md ";

@@ -72,13 +72,3 @@ class Reserve:
          return {"reserved":reserved,"user":user,"playground": playground}
      return {"reserved":reserved,"user":user,"playground": playground}
      
-      
-   def reserve_at(self,time):
-       
-      pass 
-
-   def cancel_reserve():
-      pass
-
-  
-      
