@@ -16,7 +16,12 @@ async function registerSubmit(event) {
 		// get form data and
 		const formData = new FormData(registerForm);
 		const data = Object.fromEntries(formData.entries());
-
+		for (let i in data) {
+			data[i] = data[i].trim();
+		}
+		if (data.username == "") {
+			throw new Error("Invalid username");
+		}
 		// check if user enter valid password
 		if (data.password.length < 6)
 			throw new Error("Your password should be at least 6 char");
@@ -58,6 +63,12 @@ async function loginSubmit(event) {
 		// get form data
 		const formData = new FormData(loginForm);
 		const data = Object.fromEntries(formData.entries());
+		for (let i in data) {
+			data[i] = data[i].trim();
+		}
+		if (data.password == "") {
+			throw new Error("Invalid password");
+		}
 
 		// api request
 		const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
