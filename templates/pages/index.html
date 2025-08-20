@@ -6,7 +6,7 @@
 		alt="Landing Image"
 	/>
 	<div
-		class="absolute left-1/2 -translate-y-1/2 -translate-x-1/2 top-2/3 text-white text-center w-full space-y-3"
+		class="absolute left-1/2 -translate-y-1/2 -translate-x-1/2 top-2/3 text-white text-center w-full space-y-3 px-3"
 	>
 		<h3 class="font-semibold text-3xl">Find Your Perfect Sports</h3>
 		<p>
@@ -18,7 +18,7 @@
 				id="search"
 				action="/results"
 				method="get"
-				class="flex justify-center gap-3"
+				class="flex justify-center flex-col sm:flex-row gap-3 w-3/4 sm:w-1/2 mx-auto"
 			>
 				<input
 					class="search"
@@ -27,7 +27,7 @@
 					name="search"
 					required
 				/>
-				<button class="btn w-32" type="submit">Search</button>
+				<button class="btn w-32 mx-auto" type="submit">Search</button>
 			</form>
 			<a id="signin" href="/login" class="btn w-32 mx-auto block py-2"
 				>Signin</a

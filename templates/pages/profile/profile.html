@@ -13,8 +13,10 @@
 	</head>
 	<body>
 		<header>{% include "layout/navbar.html" %}</header>
-		<main class="min-h-[60vh] flex gap-10">
-			<aside class="px-5 pt-10 w-1/5 h-screen bg-zinc-100 flex flex-col gap-5">
+		<main class="min-h-[60vh] flex flex-col md:flex-row gap-10">
+			<aside
+				class="px-5 pt-10 w-1/5 md:h-screen md:bg-zinc-100 flex md:flex-col gap-5"
+			>
 				<a href="/profile/info" class="block link">Info</a>
 				<a href="/profile/update" class="block link">Update</a>
 				<a href="/profile/delete" class="block link">Delete</a>

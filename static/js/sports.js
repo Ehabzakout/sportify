@@ -14,10 +14,9 @@ if (!user) {
 function displayCategories(cat) {
 	for (let i = 0; i < cat.length; i++) {
 		const item = document.createElement("div");
-		item.className = " grid grid-cols-2 h-28 my-3 gap-4";
-		if (!user) {
-			item.classList.add("disabled");
-		}
+		item.className =
+			" grid grid-cols-1 md:grid-cols-2 md:h-28 my-6 md:my-3 gap-4";
+
 		const imgDiv = createImgDiv(cat[i].img);
 		item.appendChild(imgDiv);
 		const details = document.createElement("a");
