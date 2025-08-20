@@ -19,9 +19,15 @@ async function registerSubmit(event) {
 		for (let i in data) {
 			data[i] = data[i].trim();
 		}
-		if (data.username == "") {
+		if (data.username == "" || data.username.length < 3) {
 			throw new Error("Invalid username");
 		}
+		if (
+			data.phone.length != 11 ||
+			data.phone.match(/[a-zA-Z]/) ||
+			data.phone == ""
+		)
+			throw new Error("invalid phone number");
 		// check if user enter valid password
 		if (data.password.length < 6)
 			throw new Error("Your password should be at least 6 char");
