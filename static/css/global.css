@@ -46,7 +46,6 @@ input.search {
 	}
 }
 input.search {
-	width: 40%;
 	height: 40px;
 	&:focus {
 		box-shadow: 0px 0px 15px 0px var(--main-color);
